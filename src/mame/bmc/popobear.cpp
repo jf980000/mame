@@ -137,7 +137,6 @@ private:
 
 	TIMER_DEVICE_CALLBACK_MEMBER(scanline_cb);
 
-	void postload();
 	void main_map(address_map &map) ATTR_COLD;
 };
 
@@ -188,11 +187,6 @@ template <unsigned N> TILE_GET_INFO_MEMBER(popobear_state::get_tile_info)
 	tileinfo.set(0, tileno & 0x3fff, 0, TILE_FLIPYX(flipyx));
 }
 
-void popobear_state::postload()
-{
-	m_gfxdecode->gfx(0)->mark_all_dirty();
-}
-
 void popobear_state::video_start()
 {
 	m_vram_rearranged.resize(0x100000 / 2);
@@ -210,7 +204,6 @@ void popobear_state::video_start()
 	m_bg_tilemap[3]->set_transparent_pen(0);
 
 	save_item(NAME(m_vram_rearranged));
-	machine().save().register_postload(save_prepost_delegate(FUNC(popobear_state::postload), this));
 }
 
 
@@ -642,8 +635,25 @@ ROM_START( magkengo )
 	ROM_LOAD( "magical_kengo_2005_l4_a_701_u20.u20", 0x00000, 0x80000, CRC(a2c563a7) SHA1(ce33e95887cdf76cb4c5f944bbdd219de1b2c7c0) ) // AMD AM27C040
 ROM_END
 
+// HERBHOME 20A23-2 PCB. Same as the 20A23-1 variant but with single interleaved ROM for GFX and the BMC customs scratched off and covered
+// with  Global stickers.
+// Has Herb Home 2003 copyright in ROM but stickers have 2005. TODO: Verify date on title screen when it boots.
+ROM_START( magkengou )
+	ROM_REGION( 0x40000, "maincpu", 0 )
+	ROM_LOAD16_BYTE( "magical_kengo_2005_l1_b_201_u27.u27", 0x000000, 0x020000, CRC(26e118da) SHA1(7ec4c5e6f56566013033149746655567f10b968a) )
+	ROM_LOAD16_BYTE( "magical_kengo_2005_l1_b_101_u26.u26", 0x000001, 0x020000, CRC(30a8c00e) SHA1(7e7ffdc165312103465d67375ba2bac0800d3df4) )
+
+	ROM_REGION16_BE( 0x400000, "gfx_data", ROMREGION_ERASE00 )
+	ROM_LOAD( "magical_kengo_2005_l8_a_301_u7.u7", 0x000000, 0x200000, CRC(58e3acba) SHA1(59e105507d336451c3e2517a5a1f853d5edc7375) )
+	// u3 and u4 empty not populated
+
+	ROM_REGION( 0x80000, "oki", 0 )
+	ROM_LOAD( "magical_kengo_2005_l4_b_701_u20.u20", 0x00000, 0x80000, CRC(f8fb7f0c) SHA1(b7b0d08774334b07c6faab024f05e3cf37934090) )
+ROM_END
+
 } // anonymous namespace
 
 
-GAME( 2000, popobear, 0, popobear, popobear, popobear_state, empty_init, ROT0, "BMC",       "PoPo Bear",     MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_TIMING | MACHINE_SUPPORTS_SAVE )
-GAME( 2005, magkengo, 0, popobear, popobear, popobear_state, empty_init, ROT0, "Herb Home", "Magical Kengo", MACHINE_NOT_WORKING | MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_TIMING | MACHINE_SUPPORTS_SAVE )
+GAME( 2000, popobear,  0,        popobear, popobear, popobear_state, empty_init, ROT0, "BMC",       "PoPo Bear",                          MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_TIMING | MACHINE_SUPPORTS_SAVE )
+GAME( 2005, magkengo,  0,        popobear, popobear, popobear_state, empty_init, ROT0, "Herb Home", "Magical Kengo 2005 (Ver. 1.2)",      MACHINE_NOT_WORKING | MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_TIMING | MACHINE_SUPPORTS_SAVE )
+GAME( 2005, magkengou, magkengo, popobear, popobear, popobear_state, empty_init, ROT0, "Herb Home", "Magical Kengo 2005 (Ver. USA 1.10)", MACHINE_NOT_WORKING | MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_TIMING | MACHINE_SUPPORTS_SAVE )

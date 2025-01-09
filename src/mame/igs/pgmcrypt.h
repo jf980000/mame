@@ -56,9 +56,11 @@ void olympic5_decrypt(running_machine &machine);
 void icescape_decrypt(running_machine &machine);
 void tripfev_decrypt(running_machine &machine);
 void wldfruit_decrypt(running_machine &machine);
-void lthy_decrypt(running_machine &machine);
-void lhdmg_decrypt(running_machine &machine);
+void lthyp_decrypt(running_machine &machine);
 void tripslot_decrypt(running_machine &machine);
 void extradrw_decrypt(running_machine &machine);
+void cjddzlf_decrypt(running_machine &machine);
+void cjtljp_decrypt(running_machine& machine);
+void mxsqy_decrypt(running_machine& machine);
 
 #endif // MAME_IGS_PGMCRYPT_H
