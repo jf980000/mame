@@ -4,8 +4,8 @@
  * Konami 573 Martial Beat I/O
  *
  */
-#ifndef MAME_MACHINE_K573MARTIAL_H
-#define MAME_MACHINE_K573MARTIAL_H
+#ifndef MAME_KONAMI_K573MARTIAL_H
+#define MAME_KONAMI_K573MARTIAL_H
 
 #pragma once
 
@@ -76,4 +76,4 @@ private:
 
 DECLARE_DEVICE_TYPE(KONAMI_573_MARTIAL_BEAT_IO, k573martial_device)
 
-#endif // MAME_MACHINE_K573MARTIAL_H
+#endif // MAME_KONAMI_K573MARTIAL_H

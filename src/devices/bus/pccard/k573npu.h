@@ -4,8 +4,8 @@
  * Konami 573 Network PCB Unit
  *
  */
-#ifndef MAME_KONAMI_K573NPU_H
-#define MAME_KONAMI_K573NPU_H
+#ifndef MAME_BUS_PCCARD_K573NPU_H
+#define MAME_BUS_PCCARD_K573NPU_H
 
 #pragma once
 
@@ -30,4 +30,4 @@ private:
 	required_device<tx3927_device> m_maincpu;
 };
 
-#endif // MAME_KONAMI_K573NPU_H
+#endif // MAME_BUS_PCCARD_K573NPU_H

@@ -4,8 +4,8 @@
  * Konami 573 e-Amusemental Rental Device
  *
  */
-#ifndef MAME_MACHINE_K573RENTAL_H
-#define MAME_MACHINE_K573RENTAL_H
+#ifndef MAME_KONAMI_K573RENTAL_H
+#define MAME_KONAMI_K573RENTAL_H
 
 #pragma once
 
@@ -45,4 +45,4 @@ private:
 
 DECLARE_DEVICE_TYPE(KONAMI_573_EAMUSE_RENTAL_DEVICE, k573rental_device)
 
-#endif // MAME_MACHINE_K573RENTAL_H
+#endif // MAME_KONAMI_K573RENTAL_H

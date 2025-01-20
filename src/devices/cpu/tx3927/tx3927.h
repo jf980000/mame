@@ -1,8 +1,8 @@
 // license:BSD-3-Clause
 // copyright-holders:windyfairy
 
-#ifndef MAME_CPU_MIPS_TX3927_H
-#define MAME_CPU_MIPS_TX3927_H
+#ifndef MAME_CPU_TX3927_TX3927_H
+#define MAME_CPU_TX3927_TX3927_H
 
 #pragma once
 
@@ -186,4 +186,4 @@ private:
 
 DECLARE_DEVICE_TYPE(TX3927,      tx3927_device)
 
-#endif // MAME_CPU_MIPS_TX3927_H
+#endif // MAME_CPU_TX3927_TX3927_H

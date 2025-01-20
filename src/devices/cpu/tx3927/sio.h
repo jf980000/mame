@@ -1,8 +1,8 @@
 // license:BSD-3-Clause
 // copyright-holders:windyfairy
 
-#ifndef MAME_CPU_MIPS_TX3927_SIO_H
-#define MAME_CPU_MIPS_TX3927_SIO_H
+#ifndef MAME_CPU_TX3927_SIO_H
+#define MAME_CPU_TX3927_SIO_H
 
 #pragma once
 
@@ -125,4 +125,4 @@ private:
 
 DECLARE_DEVICE_TYPE(TX3927_SIO,  tx3927_sio)
 
-#endif // MAME_CPU_MIPS_TX3927_SIO_H
+#endif // MAME_CPU_TX3927_SIO_H
