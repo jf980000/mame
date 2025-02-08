@@ -28,7 +28,7 @@ class psxgpu_device : public device_t, public device_video_interface, public dev
 public:
 	// configuration helpers
 	auto vblank_callback() { return m_vblank_handler.bind(); }
-	void set_vram_size(int size) { vramSize = size; }
+	int vram_size() { return vramSize; }
 
 	void set_twinkle_hacks(bool enabled) { m_twinkle_hacks = enabled; }
 
