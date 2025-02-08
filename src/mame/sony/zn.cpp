@@ -6167,8 +6167,8 @@ GAME( 1998, bldyror2a, bldyror2, coh1002e,  bldyror2, raizing_zn_state, empty_in
 GAME( 1998, bldyror2j, bldyror2, coh1002e,  bldyror2, raizing_zn_state, empty_init, ROT0, "Eighting / Raizing",      "Bloody Roar 2 (Japan)",                                    MACHINE_SUPPORTS_SAVE )
 
 // Eighting / Raizing (MTR990601-(A))
-GAME( 1999, bam2,      coh1002e, bam2hdd,   bam2,     bam2_state,       empty_init, ROT0, "Metro / Enix / Namco",    "Bust a Move 2 - Dance Tengoku Mix (HDD Japanese ROM ver. 1999/07/17 10:00:00)", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )
-GAME( 1999, bam2a,     bam2,     bam2cdrom, bam2,     bam2_state,       empty_init, ROT0, "Metro / Enix / Namco",    "Bust a Move 2 - Dance Tengoku Mix (CDROM Japanese ROM ver. 1999/07/17 10:00:00)", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )
+GAME( 1999, bam2,      coh1002e, bam2,      bam2,     bam2_hle_hdd_state,     empty_init, ROT0, "Metro / Enix / Namco",    "Bust a Move 2 - Dance Tengoku Mix (HDD Japanese ROM ver. 1999/07/17 10:00:00)", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )
+GAME( 1999, bam2a,     bam2,     bam2,      bam2,     bam2_hle_cdrom_state,   empty_init, ROT0, "Metro / Enix / Namco",    "Bust a Move 2 - Dance Tengoku Mix (CDROM Japanese ROM ver. 1999/07/17 10:00:00)", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )
 
 // Tecmo (PS9805)
 GAME( 2000, brvblade,  coh1002m, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT270, "Eighting / Raizing",    "Brave Blade (World)",                                      MACHINE_SUPPORTS_SAVE )

@@ -11,6 +11,7 @@
 #pragma once
 
 #include "zn.h"
+#include "bus/ata/ataintf.h"
 #include "imagedev/harddriv.h"
 #include "imagedev/cdromimg.h"
 #include "sound/dmadac.h"

@@ -67,8 +67,9 @@ bam2_hle_state::bam2_hle_state(const machine_config &mconfig, device_type type, 
 
 void bam2_hle_state::bam2(machine_config &config)
 {
-	zn_2mb_vram(config);
-	gameboard_cat702(config);
+	zn1_2mb_vram(config);
+	cat702<0>(config);
+	cat702<1>(config);
 
 	m_maincpu->set_addrmap(AS_PROGRAM, &bam2_hle_state::main_map);
 
@@ -129,7 +130,7 @@ void bam2_hle_state::machine_reset()
 
 void bam2_hle_state::main_map(address_map &map)
 {
-	zn_rom_base_map(map);
+	maincpu_program_map(map);
 
 	map(0x1f000000, 0x1f3fffff).rom().region("bankedroms", 0);
 	map(0x1f400000, 0x1f7fffff).bankr("rombank");
@@ -176,7 +177,7 @@ void bam2_hle_state::mcu_w(offs_t offset, uint16_t data)
 				case 0x82:
 				{
 					// play audio
-					attotime rate = m_gpu_screen->frame_period();
+					attotime rate = m_screen->frame_period();
 
 					// The game will subtract 18 from the calculated value for the CD version, so offset it to account for that
 					if (!m_media_is_hdd)
@@ -223,7 +224,7 @@ void bam2_hle_state::mcu_w(offs_t offset, uint16_t data)
 					break;
 
 				default:
-					printf("BAM2 MCU param: %04x %04x (PC %08x)\n", m_mcu_command, data, m_maincpu->pc());
+					// printf("BAM2 MCU param: %04x %04x (PC %08x)\n", m_mcu_command, data, m_maincpu->pc());
 					break;
 			}
 		}
@@ -234,7 +235,7 @@ void bam2_hle_state::mcu_w(offs_t offset, uint16_t data)
 		break;
 
 	default:
-		printf("BAM2 MCU unk: %d %04x %04x (PC %08x)\n", offset, m_mcu_command, data, m_maincpu->pc());
+		// printf("BAM2 MCU unk: %d %04x %04x (PC %08x)\n", offset, m_mcu_command, data, m_maincpu->pc());
 		break;
 	}
 }
@@ -797,7 +798,7 @@ TIMER_CALLBACK_MEMBER(bam2_hle_cdrom_state::audio_playback)
 		const int16_t *samples = (int16_t*)audio_buffer.data();
 		const uint32_t samples_read = read_bytes / (sizeof(int16_t) * std::size(m_dmadac));
 		for (int i = 0; i < std::size(m_dmadac); i++)
-			m_dmadac[i]->transfer(i, 2, 2, samples_read, samples);
+			m_dmadac[i]->transfer(i, 1, 2, samples_read, samples);
 
 		m_audio_remaining_samples += samples_read;
 	}
