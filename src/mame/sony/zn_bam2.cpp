@@ -536,7 +536,7 @@ TIMER_CALLBACK_MEMBER(bam2_hle_hdd_state::audio_playback)
 		const int16_t *samples = (int16_t*)audio_buffer.data();
 		const uint32_t samples_read = read_bytes / (sizeof(int16_t) * std::size(m_dmadac));
 		for (int i = 0; i < std::size(m_dmadac); i++)
-			m_dmadac[i]->transfer(i, 2, 2, samples_read, samples);
+			m_dmadac[i]->transfer(i, 1, 2, samples_read, samples);
 
 		m_audio_remaining_samples += samples_read;
 	}
