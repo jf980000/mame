@@ -108,7 +108,7 @@ k573msu_device::k573msu_device(const machine_config &mconfig, const char *tag, d
 
 static void k573msu_ata_devices(device_slot_interface& device)
 {
-	device.option_add("cdrom", ATAPI_FIXED_CDROM);
+	device.option_add("cdrom", ATAPI_CDROM);
 }
 
 void k573msu_device::device_add_mconfig(machine_config &config)
